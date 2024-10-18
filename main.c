@@ -90,13 +90,17 @@ int main()
     
         while(wincond)
         {
+            
+            bonus--;
+            printf("%d", bonus);
+            
+            eat_fruit(&list, list2, tab);
+            del = eat_bonus(&list, list2, tab, del);
+            refresh_map(tab, list,list2);
             if(bonus == 1)
             {
-                pos_bonus(tab, list2);
+                del = del - 80;
             }
-            refresh_map(tab, list,list2);
-            eat_fruit(&list, list2, tab);
-            eat_bonus(&list, list2, tab, &del);
             SDL_Event e;
             while (SDL_PollEvent(&e)) 
             {
@@ -157,19 +161,13 @@ int main()
                         SDL_Rect rect_img = {48,0, 16, 16};
                         SDL_RenderCopy(renderer, texture, &rect_img, &rect);
                     }
-                    else if(tab[i][j] == '4')
-                    {
-                        SDL_Rect rect = {j * 16, i * 16, 16, 16};
-                        SDL_Rect rect_img = {64,0, 16, 16};
-                        SDL_RenderCopy(renderer, texture, &rect_img, &rect);
-                    }
-
+                    
                     j++;
                 }
 
                 i++;
             }
-            bonus--;
+            
             SDL_RenderPresent(renderer);
             
         }

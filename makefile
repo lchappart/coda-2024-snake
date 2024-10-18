@@ -3,6 +3,8 @@
 NAME = snake
 
 SRCS = main.c\
+	snake.c\
+	fruits.c\
 	fonction.c
 
 all :  $(NAME)

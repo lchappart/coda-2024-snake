@@ -44,7 +44,8 @@ int wincondition(snake **list);
 fruit *create_list_fruit();
 void eat_fruit(snake **list, fruit *fruit, char **tab);
 void pos_bonus(char **tab, fruit *list);
-void eat_bonus(snake **list, fruit *fruit, char **tab, int *del);
+int eat_bonus(snake **list, fruit *fruit, char **tab, int del);
+fruit *create_list_bonus();
 
 
 #endif
