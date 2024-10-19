@@ -22,14 +22,11 @@ void add_to_end(snake **list)
 
 
 
-// Update the declaration of refresh_map
-
-
 void refresh_map(char **tab, snake *list, fruit *fruit)
 {
     snake *temp = list;
 
-    // Réinitialiser la carte
+   
     for (int i = 1; i < 19; i++)
     {
         for (int j = 1; j < 39; j++)
@@ -38,14 +35,12 @@ void refresh_map(char **tab, snake *list, fruit *fruit)
         }
     }
 
-    // Mettre à jour la position du serpent sur la carte
     while (temp != NULL)
     {
         tab[temp->pos_y][temp->pos_x] = '1';
         temp = temp->next;
     }
 
-    // Mettre à jour la position du fruit sur la carte
     if (fruit != NULL)
     {
         tab[fruit->pos_y][fruit->pos_x] = '2';

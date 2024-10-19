@@ -3,6 +3,7 @@
 int main()
 {
     FILE *fp = fopen("map.txt", "r");
+
     char * file_content;
     char **tab;
     int lines;
@@ -13,6 +14,7 @@ int main()
     int wincond = 1;
     int bonus = 50;
     int del = 100;
+   
     srand(time(NULL));
 
     if (fp == NULL)
@@ -22,14 +24,12 @@ int main()
     }
 
     file_content = get_file(fp);
-
     fclose(fp);
     
     lines = count_lines(file_content);
-
     tab = malloc(lines * sizeof(*tab));
-
     line = strtok(file_content, "\n");
+    
     while((line != NULL) && (i < lines))
     {
         tab[i] = malloc(strlen(line) * sizeof(char));
@@ -83,6 +83,7 @@ int main()
     SDL_FreeSurface(surface);   
     snake *list = create_list();
     fruit *list2 = create_list_fruit();
+    
     for (int k = 1; k < 4; k++)
     {
         add_to_end(&list);
@@ -92,7 +93,6 @@ int main()
         {
             
             bonus--;
-            printf("%d", bonus);
             
             eat_fruit(&list, list2, tab);
             del = eat_bonus(&list, list2, tab, del);
@@ -173,9 +173,11 @@ int main()
         }
     
 
-    for (i = 0; i < lines; i++) {
+    for (i = 0; i < lines; i++) 
+    {
         free(tab[i]);
-        }
+    }
+
     free(tab);
 
 
@@ -185,6 +187,7 @@ int main()
         free(list);
         list = next;
     }   
+    
     free(file_content);
     
     SDL_Event e;

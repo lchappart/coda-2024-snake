@@ -32,20 +32,22 @@ struct s_fruit
     int pos_bonus_y;
 };
 
-void pos_fruit(char **tab, fruit *list);
-void refresh_map(char **tab, snake *list, fruit *fruit);
+// snake.c
 void move(snake **list, int direction);
 snake *create_list();
+int wincondition(snake **list);
+
+// fruits.c
+fruit *create_list_fruit();
+void eat_fruit(snake **list, fruit *fruit, char **tab);
+void pos_fruit(char **tab, fruit *list);
+
+//fonction.c
+void refresh_map(char **tab, snake *list, fruit *fruit);
 void add_to_end(snake **list);
 char * get_file(FILE * fp);
 int count_lines(char *str);
 void display_tab(char **tab, int lines);
-int wincondition(snake **list);
-fruit *create_list_fruit();
-void eat_fruit(snake **list, fruit *fruit, char **tab);
-void pos_bonus(char **tab, fruit *list);
-int eat_bonus(snake **list, fruit *fruit, char **tab, int del);
-fruit *create_list_bonus();
 
 
 #endif

@@ -24,6 +24,7 @@ void move(snake **list, int direction)
     }
 
     temp = temp->next;
+
     while (temp != NULL)
     {
         int temp_x = temp->pos_x;
@@ -47,14 +48,15 @@ int wincondition(snake **list)
 {
     snake *first = *list;
     snake *current = *list;
+    int length = 0;
 
-    // Vérifier si le serpent touche les bords
+    
     if (first->pos_x == 0 || first->pos_x == 39 || first->pos_y == 0 || first->pos_y == 19)
     {
         printf("Vous avez perdu !\n");
         return 0;
     }
-    int length = 0;
+    
     current = *list;
     while (current != NULL)
     {
@@ -65,12 +67,12 @@ int wincondition(snake **list)
     if (length >= 684)
     {
         printf("Vous avez gagné !\n");
-        return 2; // Retourner 2 pour indiquer la victoire
+        return 2; 
     }
 
     while (current != NULL)
     {
-        snake *suiv = current->next; // Réinitialiser suiv pour chaque itération de current
+        snake *suiv = current->next;
         while (suiv != NULL)
         {
             if (first->pos_x == suiv->pos_x && first->pos_y == suiv->pos_y)
@@ -83,7 +85,7 @@ int wincondition(snake **list)
         current = current->next;
     }
 
-    return 1; // Retourner 1 si aucune condition de perte n'est remplie
+    return 1;
 }
 
 snake *create_list()
