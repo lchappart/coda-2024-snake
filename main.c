@@ -95,7 +95,6 @@ int main()
             bonus--;
             
             eat_fruit(&list, list2, tab);
-            del = eat_bonus(&list, list2, tab, del);
             refresh_map(tab, list,list2);
             if(bonus == 1)
             {
